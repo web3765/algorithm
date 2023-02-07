@@ -23,8 +23,10 @@ public class Main {
 		
 		for(int T=0; T<tc; T++) {
 			int n = Integer.parseInt(br.readLine());
-			sb.append(zero[n] + " " + one[n] + "\n");
-			
+			sb.append(zero[n]);
+			sb.append(" ");
+			sb.append(one[n]);
+			sb.append("\n");
 		}
 		System.out.println(sb.toString());
 			
