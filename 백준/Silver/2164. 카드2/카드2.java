@@ -16,8 +16,7 @@ public class Main {
 //		2. cycle
 		while(Q.size() != 1) {
 			Q.poll();
-			int cur = Q.poll();
-			Q.offer(cur);
+			Q.offer(Q.poll());
 		}
 //		3. output
 		System.out.println(Q.peek());
