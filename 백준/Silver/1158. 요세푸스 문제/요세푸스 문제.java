@@ -19,7 +19,7 @@ public class Main {
 //		2. Queue > LinkedList | ArrayDeque
 		List<Integer> answer = new LinkedList<>();
 //		Queue<Integer> Q = new LinkedList<>();
-    	Queue<Integer> Q = new ArrayDeque<>();
+    		Queue<Integer> Q = new ArrayDeque<>();
 		StringBuilder sb = new StringBuilder();
 		sb.append('<');
 		for(int i=1; i<=N; i++)
