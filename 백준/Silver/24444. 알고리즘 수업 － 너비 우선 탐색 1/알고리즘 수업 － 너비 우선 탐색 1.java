@@ -10,23 +10,25 @@ import java.util.StringTokenizer;
 
 public class Main {
 
+	static int N, M, R;
+	static ArrayList<ArrayList<Integer>> graph;
+	static boolean[] visited; 
+	static int[] ans;
+	
 	public static void main(String[] args) throws IOException {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
-		int N = Integer.parseInt(st.nextToken());
-		int M = Integer.parseInt(st.nextToken());
-		int R = Integer.parseInt(st.nextToken());
+		N = Integer.parseInt(st.nextToken());
+		M = Integer.parseInt(st.nextToken());
+		R = Integer.parseInt(st.nextToken());
 		
-		ArrayList<ArrayList<Integer>> graph = new ArrayList<ArrayList<Integer>>();
-		Queue<Integer> que = new LinkedList<>();
-		boolean[] visited = new boolean[N+1];
-		int[] ans = new int[N+1];
-		int level = 1;
+		graph = new ArrayList<ArrayList<Integer>>();
+		visited = new boolean[N+1];
+		ans = new int[N+1];
 		
 		for(int i=0; i<=N; i++) 
-			graph.add(new ArrayList<Integer>());
-		
+			graph.add(new ArrayList<Integer>());	
 		for(int i=0; i<M; i++) {
 			st = new StringTokenizer(br.readLine());
 			int s = Integer.parseInt(st.nextToken());
@@ -38,10 +40,20 @@ public class Main {
 		for(int i=1; i<=N; i++) 
 			Collections.sort(graph.get(i));
 		
-//		BFS
+		bfs();
+	
+		for(int i=1; i<=N; i++)
+			System.out.println(ans[i]);
+	}
+
+	private static void bfs() {
+		int level = 1;
+		Queue<Integer> que = new LinkedList<>();
+
 		que.offer(R);
 		ans[R] = level;
 		visited[R] = true;
+		
 		while(!que.isEmpty()) {
 			int tmp = que.poll();
 			ans[tmp] = level++;
@@ -52,8 +64,6 @@ public class Main {
 			}
 		}
 
-		for(int i=1; i<=N; i++)
-			System.out.println(ans[i]);
 	}
 
 }
