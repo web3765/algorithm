@@ -28,8 +28,9 @@ public class Main {
 	
 		Iterator<String> it = voca.iterator();
 		while(it.hasNext())
-			System.out.println(it.next());
+			sb.append(it.next()).append("\n");
 		
+		System.out.println(sb.toString());
 	}
 
 }
